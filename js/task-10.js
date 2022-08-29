@@ -26,15 +26,12 @@ refs.boxEl.style.flexWrap = 'wrap';
 console.log(refs.inputNumberEl);
 
 refs.createElBtn.addEventListener('click', () => {
- 
-  return createBoxes(refs.inputNumberEl.value);
-  
-  
+  createBoxes(refs.inputNumberEl.value);
 });
 
 const createBoxes = amount => {
 
-  for (let i = 0; i < amount; i++) {
+  for (let i = 0; i < amount; i+=1) {
 
     const divEl = document.createElement('div');
   
@@ -43,11 +40,13 @@ const createBoxes = amount => {
     divEl.style.backgroundColor = getRandomHexColor();
 
     refs.boxEl.append(divEl);
-    
+
     refs.destroyElBtn.addEventListener('click', () => {
       destroyBoxes(divEl);
     });
+    
   };
+  
 };
 
 const destroyBoxes = element => {
