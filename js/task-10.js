@@ -23,38 +23,41 @@ const refs = {
 
 refs.boxEl.style.display = 'flex';
 refs.boxEl.style.flexWrap = 'wrap';
+refs.boxEl.style.alignItems = 'center';
 console.log(refs.inputNumberEl);
 
 refs.createElBtn.addEventListener('click', () => {
   createBoxes(refs.inputNumberEl.value);
 
 });
-
+let allBoxEl = []
 const createBoxes = amount => {
-  const allBoxEl = []
+  
 
-  for (let i = allBoxEl; i < amount; i += 1) {
+  for (let i = 0; i < amount; i += 1) {
 
     const divEl = document.createElement('div');
 
-    divEl.style.width = i * 10 + 30 + 'px';
-    divEl.style.height = i * 10 + 30 + 'px';
+    divEl.style.width = allBoxEl.length * 10 + 30 + 'px';
+    divEl.style.height = allBoxEl.length * 10 + 30 + 'px';
 
     divEl.style.backgroundColor = getRandomHexColor();
-    console.log(divEl);
+
     allBoxEl.push(divEl);
 
     refs.boxEl.append(divEl);
-    console.log(allBoxEl.length);
 
     refs.destroyElBtn.addEventListener('click', () => {
       destroyBoxes(divEl);
+      allBoxEl = [];
+      
     });
   };
 };
 
 const destroyBoxes = element => {
   element.remove();
+
 };
 
 const getRandomHexColor = () => {
