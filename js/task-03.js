@@ -32,11 +32,11 @@ const gallaryTemplateString = images.map(image => {
 
  return `<li><img src = "${image.url}" alt = "${image.alt}" width = 300></li>`;
  
-});
+}).join('');
 
-const MakeGallary = gallaryTemplateString.join('')
 
-getGallery.insertAdjacentHTML("afterbegin", MakeGallary);
+
+getGallery.insertAdjacentHTML("afterbegin", gallaryTemplateString);
 
 
 

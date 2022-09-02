@@ -27,11 +27,13 @@ console.log(refs.inputNumberEl);
 
 refs.createElBtn.addEventListener('click', () => {
   createBoxes(refs.inputNumberEl.value);
+
 });
 
 const createBoxes = amount => {
+  const allBoxEl = []
 
-  for (let i = 0; i < amount; i += 1) {
+  for (let i = allBoxEl; i < amount; i += 1) {
 
     const divEl = document.createElement('div');
 
@@ -39,16 +41,17 @@ const createBoxes = amount => {
     divEl.style.height = i * 10 + 30 + 'px';
 
     divEl.style.backgroundColor = getRandomHexColor();
+    console.log(divEl);
+    allBoxEl.push(divEl);
 
     refs.boxEl.append(divEl);
+    console.log(allBoxEl.length);
 
     refs.destroyElBtn.addEventListener('click', () => {
       destroyBoxes(divEl);
     });
   };
 };
-
-
 
 const destroyBoxes = element => {
   element.remove();
