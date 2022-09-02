@@ -14,17 +14,17 @@ const ingredients = [
   'Condiments',
 ];
 
-const getElingredient = document.querySelector('#ingredients');
-
-ingredients.forEach(element => {
-  
+const createNewEl = ingredients.map(element => {
+  console.log(element);
   const newEl = document.createElement('li');
-  
   newEl.textContent = element;
   newEl.classList.add('item');
-  getElingredient.append(newEl);
+
+  return newEl;
 
 });
+
+const getElingredient = document.querySelector('#ingredients').append(...createNewEl);
 
 //DONE
 

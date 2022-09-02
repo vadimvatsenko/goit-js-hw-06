@@ -15,10 +15,10 @@
 //
 
 const refs = {
-    boxEl: document.querySelector('#boxes'),
-    createElBtn: document.querySelector('[data-create]'),
-    destroyElBtn: document.querySelector('[data-destroy]'),
-    inputNumberEl: document.querySelector('#controls input'),
+  boxEl: document.querySelector('#boxes'),
+  createElBtn: document.querySelector('[data-create]'),
+  destroyElBtn: document.querySelector('[data-destroy]'),
+  inputNumberEl: document.querySelector('#controls input'),
 }
 
 refs.boxEl.style.display = 'flex';
@@ -31,12 +31,13 @@ refs.createElBtn.addEventListener('click', () => {
 
 const createBoxes = amount => {
 
-  for (let i = 0; i < amount; i+=1) {
+  for (let i = 0; i < amount; i += 1) {
 
     const divEl = document.createElement('div');
-  
+
     divEl.style.width = i * 10 + 30 + 'px';
     divEl.style.height = i * 10 + 30 + 'px';
+
     divEl.style.backgroundColor = getRandomHexColor();
 
     refs.boxEl.append(divEl);
@@ -44,10 +45,10 @@ const createBoxes = amount => {
     refs.destroyElBtn.addEventListener('click', () => {
       destroyBoxes(divEl);
     });
-    
   };
-  
 };
+
+
 
 const destroyBoxes = element => {
   element.remove();

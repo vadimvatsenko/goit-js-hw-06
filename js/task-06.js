@@ -8,18 +8,30 @@
 // Для добавления стилей, используй CSS - классы valid и invalid,
 // которые мы уже добавили в исходные файлы задания.
 
+
 const getInput = document.querySelector('input');
-console.log(getInput.dataset.length);
+
 
 getInput.addEventListener('blur', inputChangeValidColor);
 
 function inputChangeValidColor(event) {
-    if (event.currentTarget.value.length < getInput.dataset.length) {
-        return getInput.classList.add('invalid') || getInput.classList.remove('valid');
-        
-    };
-   return getInput.classList.add('valid') || getInput.classList.remove('invalid');
+    console.log(event.currentTarget.value.length == getInput.dataset.length);
+    console.log(getInput.dataset.length);
+    console.log(event.currentTarget.value.length)
+
+    if (event.currentTarget.value.length == getInput.dataset.length) {
+       return getInput.classList.add('valid') || getInput.classList.remove('invalid');
+    }
+    return getInput.classList.add('invalid') || getInput.classList.remove('valid');
 };
 
-//DONE
+
+
+ 
+
+
+
+
+        
+
 
